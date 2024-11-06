@@ -1,4 +1,4 @@
-import { Model, Table, Column, DataType, HasMany, BelongsTo } from "sequelize-typescript";
+import { Model, Table, Column, DataType, HasMany, BelongsTo, ForeignKey } from "sequelize-typescript";
 import WtrTankEntry, { WtrTankNewEntry } from "../types/WtrTankTypes";
 import WtrTankMetaModel from "./WtrTankMetaModel";
 import UserModel from "./UserModel";
@@ -35,12 +35,12 @@ export default class WtrTankModel extends Model<WtrTankEntry, WtrTankNewEntry> i
     })
     declare food_schedule_time: string;
 
+    @ForeignKey(() => UserModel)
     @Column({
         type: DataType.INTEGER,
         allowNull: false,
     })
     declare user_id: number;
-
 
     // Relaciones
     @BelongsTo(() => UserModel)

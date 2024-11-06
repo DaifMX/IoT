@@ -1,4 +1,4 @@
-import { Model, Table, Column, DataType, BelongsTo } from "sequelize-typescript";
+import { Model, Table, Column, DataType, BelongsTo, ForeignKey } from "sequelize-typescript";
 import WtrTankMetaEntry, { WtrTankMetaNewEntry } from "../types/WtrTankMetaTypes";
 import WtrTankModel from "./WtrTankModel";
 
@@ -36,6 +36,7 @@ export default class WtrTankMetaModel extends Model<WtrTankMetaEntry, WtrTankMet
     })
     declare ph: number;
 
+    @ForeignKey(() => WtrTankModel)
     @Column({
         type: DataType.INTEGER,
         allowNull: false,
