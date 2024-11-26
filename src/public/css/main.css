@@ -1,0 +1,482 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Joy Kim';
+    src: url('../images/Joy Kim.otf') format('opentype');
+    font-weight: 4;
+    font-style: normal;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Joy Kim',Arial, sans-serif;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensures the video is behind the main content */
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensures the video is behind the main content */
+}
+
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Moves it back by 50% of its width/height */
+    width: 80%;
+    max-width: 900px;
+    background: rgba(83, 255, 226, 0.253);
+    box-shadow: 0 8px 50px 0 rgb(24, 29, 100);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 1;
+}
+
+.containerlogin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; /* Set a fixed width to create a square */
+    height: 500px; /* Make height equal to width */
+    max-width: 900px; /* Optional: Control maximum width if desired */
+    background: rgba(83, 255, 226, 0.253);
+    box-shadow: 0 8px 50px 0 rgb(24, 29, 100);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 1;
+}
+
+
+
+.mid {
+    display: flex;
+    justify-content: center;
+}
+
+.headertitle{
+    font-size: 150%;
+    font-family: 'Joy Kim', Arial, sans-serif;
+}
+
+.header {
+    height: 70px;
+    width: 100%;
+    background: linear-gradient(to bottom, #BCBCBC 38%, #777777 100%);
+    padding: 15px;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #37474f;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+.icon {
+    position: relative; /* Ensure the pseudo-element is positioned relative to this element */
+    align-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.05rem;
+    border-color: #dfdddd;
+    box-shadow: #37474f 0px 0px 9px;
+    background-image: url('../images/frutiger_aero_icon__1__by_rk10701_dgvr5lc-pre.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* Ensures the pseudo-element is clipped to the circle */
+}
+
+.icon::after {
+    content: ''; /* Create an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); /* Initially fully transparent */
+    border-radius: 50%; /* Match the shape of the parent */
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+.icon:hover::after {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white overlay */
+}
+
+.icon:hover{
+    background: #fff opacity 20%
+}
+
+.icon:active {
+    background-color: rgba(0, 24, 77, 0.2); /* Darken the background */
+    transform: scale(0.90); /* Shrink to 75% of its size */
+    transition: transform 0.05s ease, background-color 0.2s ease; /* Smooth shrinking effect */
+}
+
+
+
+.content {
+    display: flex;
+    padding: 10px;
+    margin: 6%;
+    gap: 20px;
+}
+
+.aquarium {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.aquarium:hover {
+    transform: scale(1.1); /* Scale up the box by 10% */
+}
+
+.aquarium-image {
+    width: 100%;
+    padding-top: 60%; /* Aspect ratio placeholder */
+    background-color: #ddd;
+    border-radius: 15px;
+    background-image: url("../images/34c0d19c528865185b4839865651ae4b.gif"); /* Placeholder for aquarium image */
+    background-size: cover;
+    background-position: center;
+    box-shadow: #37474f 0px 0px 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.aquarium-image:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.612); /* Bigger shadow */
+}
+
+.info-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-title {
+    font-size: 18px;
+    color: #37474f;
+    margin-bottom: 5px;
+}
+
+.info-box {
+    width: 80%;
+    background: linear-gradient(to bottom, #ffff 1%, #8a9eb9 100%);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    color: #00796b;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.info-value {
+    color: #37474f;
+    font-size: 24px;
+}
+
+.info-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.food-icon {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(to bottom, #ffff 1%, #8a9eb9 100%);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.food-icon-img {
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/csm-T514155-9651-8a12d2d705-62e298248d8a0_g.webp'); /* Placeholder for food icon */
+    background-size: contain;   
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.fishies-icon-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 3rem;
+    background-image: url('../images/fishesgal.jpg'); /* Placeholder for food icon */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.info-box:hover {
+    transform: scale(1.1); /* Scale up the box by 10% */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Bigger shadow */
+}
+
+
+
+.food-icon:hover {
+    transform: scale(1.1); /* Scale up the food icon by 10% */
+    box-shadow: 0 4px 12px rgba(87, 255, 57, 0.764); /* Bigger shadow */
+}
+
+.info-title, .info-value {
+    transition: transform 0.3s ease; /* Smooth scaling for text */
+}
+
+.info-box:hover .info-title,
+.info-box:hover .info-value {
+    transform: scale(1.1); /* Scale up text inside the box by 10% */
+}
+
+.login-form {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-group {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 18px;
+    color: #37474f;
+}
+
+input[type="email"],
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    outline: none;
+    transform: scale(1.05);
+}
+
+.login-button {
+    margin-top: 6rem;
+    padding: 12px;
+    font-size: 18px;
+    font-family: 'Joy Kim', Arial, sans-serif;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #00796b, #004d40);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Original styles from provided CSS remain untouched. */
+
+/* Isolated styles for the new form and table elements */
+.schedule-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.schedule-form .form-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Responsive wrapping */
+}
+
+
+
+.schedule-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.schedule-form .form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00796b;
+}
+
+.schedule-form .input-field {
+    width: 120px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.schedule-form .save-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #00796b, #004d40);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.schedule-form .save-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.data-display {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+}
+
+.data-display .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.data-display .data-table th,
+.data-display .data-table td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-display .data-table th {
+    background: #00796b;
+    color: #fff;
+    font-weight: bold;
+}
+
+.data-display .data-table tbody tr:hover {
+    background: #f1f1f1;
+}
+
+.backbutton{
+    align-self: flex-end;
+}
+
+.toggle-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-btn.off {
+    background-color: #ff5e57;
+    color: white;
+}
+
+.toggle-btn.on {
+    background-color: #28a745;
+    color: white;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.table-container {
+    
+    max-height: 200px; /* Set a fixed height for the table container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ddd; /* Optional: Add a border to the container for visual separation */
+    background: rgba(255, 255, 255, 0.8); /* Optional: Match the table's background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for aesthetics */
+    border-radius: 8px; /* Match existing styles */
+}
+
+/* Optional: Add scrollbar customization (for modern browsers) */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #00796b; /* Match design theme */
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.8);
+}

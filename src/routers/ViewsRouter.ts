@@ -1,24 +1,20 @@
-import { Router, Request, Response } from "express";
+import BaseRouter from "./BaseRouter";
+import ViewsController from "../controllers/ViewsController";
 
-const router = Router();
+//=========================================================================================================
+const controller = new ViewsController();
 
-const BASE_PORT = process.env.EXPRESS_PORT;
-const BASE_URL = process.env.API_BASE_URL ? `${process.env.API_BASE_URL}:${BASE_PORT}/api` : `http://localhost:${BASE_PORT}/api`;
+export default class ViewsRouter extends BaseRouter{
+    // ATENCIÓN: Politica '_VIEW' unicamente para vistas que
+    // tiene que redireccionar a localhost:8080/login si el 
+    // token del usuario es valido, esta expirado o ausente.
+    init(){
+        this.get('/register', ['PUBLIC'], controller.register);
 
-router.get('/register', (res: Response, _req: Request) => {
-    res.render('Register');
-});
+        this.get('/login', ['PUBLIC'], controller.login);
 
-router.get('/login', (res: Response, _req: Request) => {
-    res.render('Login', {
-        css: 'Login',
-        baseUrl: BASE_URL,
-        layout: false,
-    });
-});
+        this.get('/', ['_VIEW', 'AUTHORIZED'], controller.home);
 
-router.get('/home', (res: Response, _req: Request) => {
-    res.render('Home');
-});
-
-export default router;
+        this.get('/feeding', ['_VIEW', 'AUTHORIZED'], controller.feeding);
+    };
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bubble Body</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="api-base-url" content="{{baseUrl}}">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/{{css}}.css">
+</head>
+
+<body>
+    <video autoplay loop playsinline class="background-video">
+      <source src="images/wallpaper.mp4" type="video/mp4">
+  </video>
+  <div class="sidenav">
+    {{!-- {{> sidenav_elements}} --}}
+  </div>
+
+  <div class="content">
+    {{{body}}} <!-- Where the view content will be injected -->
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="/js/service/RequestService.js"></script>
+  <script type="module" src="/js/{{js}}.js" defer></script>
+</body>
+
+</html>

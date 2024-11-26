@@ -1,7 +1,7 @@
 import { Model, Table, Column, DataType, BeforeCreate, HasOne } from "sequelize-typescript";
 import bcrypt from 'bcrypt';
 
-import UserEntry, { UserNewEntry } from "../types/UserTypes";
+import UserEntry, { UserNewEntry } from "../interfaces/IUser";
 import WtrTankModel from "./WtrTankModel";
 
 @Table({
@@ -45,7 +45,7 @@ export default class UserModel extends Model<UserEntry, UserNewEntry> implements
         allowNull: false,
         validate: {
             notNull: {msg: 'Nombre no ingresado. Intente nuevamnete.'},
-            isAlpha: {msg: 'Caracter invalido ingresado en el nombre. Solo se permiten los caracteres [Aa-Zz]. Intente nuevamente.'}
+            is: {args: /^[A-Za-z\s]+$/, msg: 'Caracter invalido ingresado en el nombre. Solo se permiten los caracteres [Aa-Zz]. Intente nuevamente.'}
         },
     })
     declare first_name: string;
@@ -55,7 +55,7 @@ export default class UserModel extends Model<UserEntry, UserNewEntry> implements
         allowNull: false,
         validate: {
             notNull: {msg: 'Apellido no ingresado. Intente nuevamnete.'},
-            isAlpha: {msg: 'Caracter invalido ingresado en el apellido. Solo se permiten los caracteres [Aa-Zz]. Intente nuevamente.'}
+            is: {args: /^[A-Za-z\s]+$/, msg: 'Caracter invalido ingresado en el apellido. Solo se permiten los caracteres [Aa-Zz]. Intente nuevamente.'}
         },
     })
     declare last_name: string;

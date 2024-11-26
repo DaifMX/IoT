@@ -1,6 +1,6 @@
 import UserModel  from "../models/UserModel";
 
-import {UserUpdateEntry, UserNewEntry} from "../types/UserTypes";
+import {UserUpdateEntry, UserNewEntry} from "../interfaces/IUser";
 import ResourceNotFoundError from "../errors/ResourceNotFoundError";
 import NotValidError from "../errors/NotValidError";
 
@@ -12,7 +12,8 @@ export default class UserService {
         const isValid = await newUser.validate();
 
         if(isValid == null) throw new NotValidError();
-
+        await newUser.save();
+        return newUser;
     };
 
     public getById = async (id: number) => {
@@ -20,6 +21,16 @@ export default class UserService {
         if(!user) throw new ResourceNotFoundError(`Usuario con id ${id} no fue encontrado en la base de datos.`);
 
         return user;
+    };
+
+    public getByEmail = async (email: string) => { 
+        const employee = await this.MODEL.findOne({
+            where: {email},
+        });
+
+        if(!employee) throw new ResourceNotFoundError(`Empleado con el email ${email} no encontrado en la base de datos.`);
+
+        return employee;
     };
 
     public update = async (id: number, entry: UserUpdateEntry) => {

@@ -2,28 +2,20 @@ export default class RequestService {
     BASE_URL = document.querySelector('meta[name="api-base-url"]').getAttribute('content');
 
     axiosInstance = axios.create({
-        baseURL: BASE_URL,
+        baseURL: this.BASE_URL,
         timeout: 1500,
-        headers: {'Content-Type': 'text/html; charset=utf-8', 'Content-Type' : 'application/json'},
+        headers: {
+            'Access-Control-Allow-Credentials': true,
+            'Content-Type': 'application/json',
+        },
+        withCredentials: true,
     });
-
-    constructor(tokenInterceptor = true){
-        if(!tokenInterceptor){
-            this.axiosInstance.interceptors.request.use(config => {
-                const token = getCookie('token');
-                if (token) return config.headers.Authorization = `Bearer ${token}`;
-    
-            }, error => {
-                return Promise.reject(error);
-            });
-        }
-    };
     
     get (url){
         try {
             return this.axiosInstance.get(url);
         } catch (err){
-
+            console.error(err.message);
         }
         
     };
@@ -33,7 +25,16 @@ export default class RequestService {
             return this.axiosInstance.post(url, body);
         
         } catch (err){
+            console.error(err.message);
+        }
+    };
 
+    postForm (url, body,config){
+        try {
+            return this.axiosInstance.postForm(url, body, config);
+        
+        } catch (err){
+            console.error(err.message);
         }
     };
 
@@ -41,7 +42,7 @@ export default class RequestService {
         try {
             return this.axiosInstance.delete(url, body)
         } catch (err){
-
+            console.error(err.message);
         }
     };
 };

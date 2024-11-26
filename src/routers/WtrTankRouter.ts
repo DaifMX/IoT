@@ -1,21 +1,13 @@
-import {Response, Request, Router} from 'express';
-import WtrTankService from '../services/WtrTankService';
-import ResourceNotFoundError from '../errors/ResourceNotFoundError';
+import WtrTankController from "../controllers/WtrTankController";
+import WtrTankService from "../services/WtrTankService";
+import BaseRouter from "./BaseRouter";
 
-const router = Router();
+//=========================================================================================================
 const service = new WtrTankService();
+const controller = new WtrTankController(service);
 
-router.get('/:id', (res: Response, req: Request) => {
-    try {
-        const id = parseInt(req.params.id);
-        const user = service.getById(id);
-
-        res.status(200).send({status:'success', payload: user});
-
-    } catch (err: any) {
-        if (err instanceof ResourceNotFoundError) res.status(404).send({status: 'error', reason: 'Acuario no encontrado.'});
-        else res.status(500).send({status: 'error', reason: 'Error desconocido.'});
-    }
-})
-
-export default router;
+export default class WtrTankRouter extends BaseRouter{
+    init(){
+        this.get('/', ['AUTHORIZED'], controller.getOne);
+    };
+}

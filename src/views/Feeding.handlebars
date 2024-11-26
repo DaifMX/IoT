@@ -1,0 +1,121 @@
+<!-- Video background -->
+    <video autoplay loop playsinline class="background-video">
+        <source src="images/[NA] Frutiger Aero Fishtank (Available in Wallpaper Engine, Link in Description).mp4" type="video/mp4">
+    </video>
+
+    <div class="mid">
+        <div class="container">
+            <header class="header">
+                <p class="title">Feeding</p>
+                <div class="header-icons">
+                    <a href="/api/logout">
+                        <div class="icon"></div>
+                    </a>
+                </div>
+            </header>
+            <main class="content">
+                <!-- Schedule Form -->
+                <form id="scheduleForm" class="schedule-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="time">Select Time:</label>
+                            <select id="time" name="time" class="input-field">
+                                <!-- Options generated dynamically -->
+                                <script>
+                                    for (let i = 0; i < 24; i++) {
+                                        let hour = i.toString().padStart(2, '0') + ":00";
+                                        document.write(`<option value="${hour}">${hour}</option>`);
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="day">Select Day:</label>
+                            <select id="day" name="day" class="input-field">
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="save-btn">Submit</button>
+                    </div>
+                </form>
+
+                <!-- Data Display Section -->
+                <div class="data-display">
+                    <div id="tableContainer" class="table-container">
+                        <table id="dataTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Day</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamically generated rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>                
+
+                <!-- Back Button -->
+                <div class="backbutton"> 
+                    <a href="/">
+                        <div class="info-icon">
+                            <div class="food-icon">
+                                <div class="fishies-icon-img"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    document.getElementById("scheduleForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form values
+        const time = document.getElementById("time").value;
+        const day = document.getElementById("day").value;
+
+        // Create new row
+        const table = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+        const newRow = table.insertRow();
+
+        // Add cells
+        const timeCell = newRow.insertCell(0);
+        const dayCell = newRow.insertCell(1);
+        const actionCell = newRow.insertCell(2);
+
+        timeCell.textContent = time;
+        dayCell.textContent = day;
+
+        // Add toggle button
+        const toggleButton = document.createElement("button");
+        toggleButton.textContent = "Off";
+        toggleButton.className = "toggle-btn off";
+        toggleButton.addEventListener("click", function() {
+            if (toggleButton.textContent === "Off") {
+                toggleButton.textContent = "On";
+                toggleButton.classList.remove("off");
+                toggleButton.classList.add("on");
+            } else {
+                toggleButton.textContent = "Off";
+                toggleButton.classList.remove("on");
+                toggleButton.classList.add("off");
+            }
+        });
+        actionCell.appendChild(toggleButton);
+    });
+</script>   
+
+</html>

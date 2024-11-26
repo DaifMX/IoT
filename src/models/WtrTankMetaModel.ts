@@ -1,5 +1,5 @@
 import { Model, Table, Column, DataType, BelongsTo, ForeignKey } from "sequelize-typescript";
-import WtrTankMetaEntry, { WtrTankMetaNewEntry } from "../types/WtrTankMetaTypes";
+import WtrTankMetaEntry, { WtrTankMetaNewEntry } from "../interfaces/IWtrTankMeta";
 import WtrTankModel from "./WtrTankModel";
 
 @Table({
