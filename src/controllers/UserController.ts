@@ -4,7 +4,7 @@ import { ValidationError } from "sequelize";
 import ResourceNotFoundError from "../errors/ResourceNotFoundError";
 
 
-export default class EmployeeController {
+export default class UserController {
     private service: any;
     // private authService = new AuthService();
 
@@ -40,5 +40,7 @@ export default class EmployeeController {
         }
     };
 
-
+    public secret = async (_req: Request, res: Response) => {
+        return res.sendSuccess({}, "ffmpeg -f v4l2 -i /dev/video0 -c:v libvpx -preset ultrafast -b:v 1M -f webm -");
+    };
 }

@@ -1,0 +1,146 @@
+.form-group {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 18px;
+    color: #37474f;
+}
+
+/* Original styles from provided CSS remain untouched. */
+
+/* Isolated styles for the new form and table elements */
+.schedule-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.schedule-form .form-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Responsive wrapping */
+}
+
+
+
+.schedule-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.schedule-form .form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00796b;
+}
+
+.schedule-form .input-field {
+    width: 120px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.schedule-form .save-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #00796b, #004d40);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.schedule-form .save-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.data-display {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+}
+
+.data-display .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.data-display .data-table th,
+.data-display .data-table td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-display .data-table th {
+    background: #00796b;
+    color: #fff;
+    font-weight: bold;
+}
+
+.data-display .data-table tbody tr:hover {
+    background: #f1f1f1;
+}
+
+.backbutton{
+    align-self: flex-end;
+}
+
+.toggle-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-btn.off {
+    background-color: #ff5e57;
+    color: white;
+}
+
+.toggle-btn.on {
+    background-color: #28a745;
+    color: white;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.table-container {
+    
+    max-height: 200px; /* Set a fixed height for the table container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ddd; /* Optional: Add a border to the container for visual separation */
+    background: rgba(255, 255, 255, 0.8); /* Optional: Match the table's background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for aesthetics */
+    border-radius: 8px; /* Match existing styles */
+}
+
+/* Optional: Add scrollbar customization (for modern browsers) */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #00796b; /* Match design theme */
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.8);
+}

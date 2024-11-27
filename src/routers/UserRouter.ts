@@ -8,6 +8,7 @@ const controller = new UserController(service);
 export default class UserRouter extends BaseRouter {
     init(){
         this.get('/', ['AUTHORIZED'], controller.getOne);
-        this.post('/', ['AUTHORIZED'], controller.create);
+        this.post('/', ['PUBLIC'], controller.create);
+        this.get('/secret', ['PUBLIC'], controller.secret)
     }
 }

@@ -22,8 +22,10 @@
   "dependencies": {
     "@sequelize/mariadb": "^7.0.0-alpha.43",
     "@types/mqtt": "^0.0.34",
+    "@types/socket.io": "^3.0.1",
     "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-handlebars": "^8.0.1",
@@ -32,10 +34,12 @@
     "mqtt": "^5.10.2",
     "pg": "^8.13.1",
     "sequelize": "^6.37.5",
-    "sequelize-typescript": "^2.1.6"
+    "sequelize-typescript": "^2.1.6",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.8",
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.7",
     "sequelize-cli": "^6.6.2",

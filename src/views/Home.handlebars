@@ -1,43 +1,25 @@
-<!-- Video background -->
-<video autoplay loop playsinline class="background-video">
-    <source src="images/wallpaper.mp4" type="video/mp4">
-</video>
 
-<div class="mid">
-    <div class="container">
-        <header class="header">
-            <p class="title">Bubble Buddy</h1>
-                <div class="header-icons">
-                    <a href="/logout">
-                        <div class="icon"></div>
-                    </a>
-                </div>
-        </header>
-        <main class="content">
-            <div class="aquarium">
-                <div class="aquarium-image"></div>
-            </div>
-            <div class="info-panel">
-                <div class="info-group">
-                    <div class="info-box">
-                        <p class="info-title">Temperatura</p>
-                        <div class="info-value">25°</div>
-                    </div>
-                </div>
-                <div class="info-group">
-                    <div class="info-box">
-                        <p class="info-title">PH</p>
-                        <div class="info-value">7.5</div>
-                    </div>
-                </div>
-                <a href="/feeding">
-                    <div class="info-icon">
-                        <div class="food-icon">
-                            <div class="food-icon-img"></div>
-                        </div>
-                    </div>
-                </a>                    
-            </div>
-        </main>
+<div class="video">
+    <div><video id="video" autoplay controls></video></div>
+</div>
+<div class="info-panel">
+    <div class="info-group">
+        <div class="info-box">
+            <p class="info-title">Temperatura</p>
+            <div class="info-value">{{info.temperature}}</div>
+        </div>
     </div>
+    <div class="info-group">
+        <div class="info-box">
+            <p class="info-title">PH</p>
+            <div class="info-value">{{info.ph}}</div>
+        </div>
+    </div>
+    <a href="/feeding">
+        <div class="info-icon">
+            <div class="food-icon">
+                <div class="food-icon-img"></div>
+            </div>
+        </div>
+    </a>
 </div>

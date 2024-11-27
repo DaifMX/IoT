@@ -37,13 +37,14 @@ export default class AuthController {
     public verify = async (req: Request, res: Response) => {
         try {
             const token = req.cookies.token;
-            if(!token) return res.sendUnauthorized('Token not found');
-
             const verifiedToken = this.service.verifyToken(token);
             if(verifiedToken) return res.sendAccepted({});
 
         } catch (err) {
             console.error(err);
+            if(err instanceof TypeError) return res.sendUnauthorized('Token not found.');
+            else if(err instanceof RuntimeError) return res.sendUnauthorized();
+
             return res.sendUnauthorized('Unexpected error');
         }
     };

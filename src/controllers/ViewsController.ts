@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { Response, Request } from 'express';
 
 import AuthService from '../services/AuthService';
@@ -24,12 +23,18 @@ export default class ViewsController {
     public login = (_req: Request, res: Response) => {
         //Revisar que el usuario no esta autorizado para poder hacer un login nuevo
         const GENERAL_FILE_NAME = 'Login';
+        // this.userService.create({
+        //     email: 'admin@example.com',
+        //     first_name: 'Super',
+        //     last_name: 'Admin',
+        //     password: 'admin'
+        // })
 
         return res.render(GENERAL_FILE_NAME, {
+            title: 'Log In',
             css: GENERAL_FILE_NAME,
             js: GENERAL_FILE_NAME,
             baseUrl: this.BASE_URL,
-            layout: false,
         });
     };
 
@@ -38,21 +43,22 @@ export default class ViewsController {
     public home = async (req: Request, res: Response) => {
         const tkn = req.cookies.token;
         const parsedTkn = this.authService.parseToken(tkn);
-        const uid = parsedTkn.uid;
+        // const uid = parsedTkn.uid;
 
         try {
             const HOME_FILE_NAME = 'Home';
-            const apiUrl = `${this.BASE_URL}/user/?uid=${uid}`;
-            const response = await axios.get<{status: string, payload: any}>(apiUrl, {
-                withCredentials: true,
-                headers: {
-                    Cookie: req.headers.cookie
-                }
-            });
+            // const apiUrl = `${this.BASE_URL}/user/?uid=${uid}`;
+            // const response = await axios.get<{status: string, payload: any}>(apiUrl, {
+            //     withCredentials: true,
+            //     headers: {
+            //         Cookie: req.headers.cookie
+            //     }
+            // });
 
             return res.render(HOME_FILE_NAME, {
                 parsedTkn,
-                pagination: response.data.payload,
+                title: 'Bubble Body',
+                info: {temperature: '25°', ph: '7.5'},
                 css: HOME_FILE_NAME,
                 js: HOME_FILE_NAME,
                 baseUrl: this.BASE_URL,
@@ -71,6 +77,7 @@ export default class ViewsController {
 
         return res.render(FEEDING_FILE_NAME, {
             parsedTkn,
+            title: 'Feeding',
             css: FEEDING_FILE_NAME,
             js: FEEDING_FILE_NAME,
             baseUrl: this.BASE_URL,

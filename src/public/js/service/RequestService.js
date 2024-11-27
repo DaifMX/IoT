@@ -14,10 +14,10 @@ export default class RequestService {
     get (url){
         try {
             return this.axiosInstance.get(url);
+        
         } catch (err){
             console.error(err.message);
         }
-        
     };
     
     post (url, body){
@@ -29,7 +29,7 @@ export default class RequestService {
         }
     };
 
-    postForm (url, body,config){
+    postForm (url, body, config){
         try {
             return this.axiosInstance.postForm(url, body, config);
         
@@ -40,7 +40,8 @@ export default class RequestService {
 
     delete (url, body){
         try {
-            return this.axiosInstance.delete(url, body)
+            return this.axiosInstance.delete(url, body);
+            
         } catch (err){
             console.error(err.message);
         }

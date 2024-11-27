@@ -10,14 +10,14 @@ import DATABASE_CONFIG from '../config/database_config';
 const db: any = {};
 
 // Instancia de Sequelize para PostgreSQL
-// const mariaSequelize = new Sequelize({
-//   database: DATABASE_CONFIG.production.database, 
-//   username: DATABASE_CONFIG.production.username, 
-//   password: DATABASE_CONFIG.production.password,
-//   host: DATABASE_CONFIG.production.host,
-//   port: DATABASE_CONFIG.production.port,
-//   dialect: 'mariadb'
-// });
+const mariaSequelize = new Sequelize({
+  database: DATABASE_CONFIG.production.database, 
+  username: DATABASE_CONFIG.production.username, 
+  password: DATABASE_CONFIG.production.password,
+  host: DATABASE_CONFIG.production.host,
+  port: DATABASE_CONFIG.production.port,
+  dialect: 'mariadb'
+});
 
 // Instancia de Sequelize para PostgreSQL
 const postgresSequelize = new Sequelize({
@@ -53,10 +53,12 @@ const sequelizePushModels = (sequelizeInstance: Sequelize) => {
   readFromDir(`${__dirname}`); //Modificamos el directorio para espeficiarle a la que carptea de que dialect debe de ingresar.
   sequelizeInstance.addModels(models); // Pasa a Sequelize el array con los directorios de los modelos a la instancia.
 
-  const finalInstanceName = 'PostgresSequelize';
+  const finalInstanceName = 'MariaSequelize';
+  // const finalInstanceName = 'PostgresSequelize';
   db[finalInstanceName] = sequelizeInstance; //Ejemplo: PostgresSequelize
 };
 
+sequelizePushModels(mariaSequelize);
 sequelizePushModels(postgresSequelize);
 
 export default db;

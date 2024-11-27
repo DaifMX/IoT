@@ -1,73 +1,61 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+#login-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-hr {
-    border: 1px solid #929292a7;
-}
-
-.title-container {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 90%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.form-container {
-    background-color: #FFFFFF;
-    color: #212B36;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Bigger, uniform shadow */
-    overflow: hidden;
-    border-radius: 16px;
-    padding: 80px;
+    gap: 20px;
     width: 100%;
-    max-width: 275px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-top: 1rem;
+    display: flex;
+    max-width: 80%;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 18px;
+    color: #37474f;
 }
 
-.input-field {
-    width: 100%;
+.content {
+    margin-left: 20%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+input {
     padding: 10px;
-    border: 1px solid #929292a7;
-    box-sizing: border-box;
-    border-radius: 8px; /* Adjust this value for more or less rounding */
     font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input:focus {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     outline: none;
-}
-.input-field:valid{
-    border: 1px solid #51b103;
+    transform: scale(1.05);
 }
 
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
+.login-button {
+    margin-top: 6rem;
+    padding: 12px;
+    font-size: 18px;
+    max-width: 80%;
+    font-family: 'Joy Kim', Arial, sans-serif;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #00796b, #004d40);
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
-    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-button:hover {
-    background-color: #023e7e;
+
+.login-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }

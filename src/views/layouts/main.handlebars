@@ -2,28 +2,57 @@
 <html lang="en">
 
 <head>
-  <title>Bubble Body</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="api-base-url" content="{{baseUrl}}">
+
+  <title>Bubble Buddy</title>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/{{css}}.css">
 </head>
 
 <body>
-    <video autoplay loop playsinline class="background-video">
-      <source src="images/wallpaper.mp4" type="video/mp4">
-  </video>
-  <div class="sidenav">
-    {{!-- {{> sidenav_elements}} --}}
+  <audio src="images/scizzie - aquatic ambience [ ezmp3.cc ].mp3" autoplay loop></audio>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('images/838c03728056fdaf9ee778ba1cd6f85a.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+
+  <div class="mid">
+    <div class="container">
+      <header class="header">
+        <p class="headertitle">{{title}}</p>
+        {{#eqLogin title}}
+        <div class="header-icons">
+          <a href="/api/auth/logout">
+            <div class="icon"></div>
+          </a>
+        </div>
+        {{/eqLogin}}
+      </header>
+      <main class="content">
+        {{{body}}}
+      </main>
+    </div>
   </div>
 
-  <div class="content">
-    {{{body}}} <!-- Where the view content will be injected -->
+  <!-- Ventana emergente (Modal) para el spinner -->
+  <div id="modal-spinner" class="spinner-modal">
+    <div class="spinner-modal-content">
+      <div class="spinner"></div>
+      <p>Por favor espera...</p>
+    </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="module" src="/js/service/RequestService.js"></script>
-  <script type="module" src="/js/{{js}}.js" defer></script>
+  <script type="module" src="/js/{{js}}.js"></script>
 </body>
 
 </html>

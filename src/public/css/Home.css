@@ -1,0 +1,95 @@
+.aquarium {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.aquarium:hover {
+    transform: scale(1.1); /* Scale up the box by 10% */
+}
+
+.aquarium-image {
+    width: 100%;
+    padding-top: 60%; /* Aspect ratio placeholder */
+    background-color: #ddd;
+    border-radius: 15px;
+    background-image: url("../images/34c0d19c528865185b4839865651ae4b.gif"); /* Placeholder for aquarium image */
+    background-size: cover;
+    background-position: center;
+    box-shadow: #37474f 0px 0px 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.aquarium-image:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.612); /* Bigger shadow */
+}
+
+.info-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-title {
+    font-size: 18px;
+    color: #37474f;
+    margin-bottom: 5px;
+}
+
+.info-box {
+    width: 96%;
+    background: linear-gradient(to bottom, #ffff 1%, #8a9eb9 100%);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    color: #00796b;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.info-value {
+    color: #37474f;
+    font-size: 24px;
+}
+
+.info-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.food-icon {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(to bottom, #ffff 1%, #8a9eb9 100%);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.food-icon-img {
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/csm-T514155-9651-8a12d2d705-62e298248d8a0_g.webp'); /* Placeholder for food icon */
+    background-size: contain;   
+    background-repeat: no-repeat;
+    background-position: center;
+}
