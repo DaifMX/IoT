@@ -36,6 +36,12 @@ export default class WtrTankMetaModel extends Model<WtrTankMetaEntry, WtrTankMet
     })
     declare ph: number;
 
+    @Column({
+        type: DataType.STRING,
+        allowNull: false,
+    })
+    declare img_path: number;
+
     @ForeignKey(() => WtrTankModel)
     @Column({
         type: DataType.INTEGER,

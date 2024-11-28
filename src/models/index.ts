@@ -20,14 +20,14 @@ const mariaSequelize = new Sequelize({
 });
 
 // Instancia de Sequelize para PostgreSQL
-const postgresSequelize = new Sequelize({
-  database: DATABASE_CONFIG.development.database, 
-  username: DATABASE_CONFIG.development.username, 
-  password: DATABASE_CONFIG.development.password,
-  host: DATABASE_CONFIG.development.host,
-  port: DATABASE_CONFIG.development.port,
-  dialect: 'postgres',
-});
+// const postgresSequelize = new Sequelize({
+//   database: DATABASE_CONFIG.development.database, 
+//   username: DATABASE_CONFIG.development.username, 
+//   password: DATABASE_CONFIG.development.password,
+//   host: DATABASE_CONFIG.development.host,
+//   port: DATABASE_CONFIG.development.port,
+//   dialect: 'postgres',
+// });
 
 const models: any = [];
 
@@ -59,6 +59,6 @@ const sequelizePushModels = (sequelizeInstance: Sequelize) => {
 };
 
 sequelizePushModels(mariaSequelize);
-sequelizePushModels(postgresSequelize);
+// sequelizePushModels(postgresSequelize);
 
 export default db;

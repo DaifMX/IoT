@@ -37,7 +37,7 @@ app.use('/', new ViewsRouter().getRouter());
 const database = 'MariaSequelize';
 // const database = 'PostgresSequelize';
 
-db[database].sync({alter: false, force: false}).then(()=> {
+db[database].sync({alter: true, force: false}).then(()=> {
     app.listen(PORT, () => {
         console.log(`Aplicación iniciada correctamente en el puerto ${PORT}`);
     });

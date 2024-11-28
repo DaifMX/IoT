@@ -1,13 +1,13 @@
 import { Response, Request } from 'express';
 
 import AuthService from '../services/AuthService';
-
+// import UserService from '../services/UserService';
 //=========================================================================================================
 export default class ViewsController {
     private BASE_PORT = process.env.EXPRESS_PORT;
     private BASE_URL = process.env.API_BASE_URL ? `${process.env.API_BASE_URL}:${this.BASE_PORT}/api` : `http://localhost:${this.BASE_PORT}/api`;
     private authService = new AuthService();
-
+    
     // Auth
     public register = (_req: Request, res: Response) => {
         const GENERAL_FILE_NAME = 'Register';
@@ -47,7 +47,7 @@ export default class ViewsController {
 
         try {
             const HOME_FILE_NAME = 'Home';
-            // const apiUrl = `${this.BASE_URL}/user/?uid=${uid}`;
+            // const apiUrl = `${this.BASE_URL}/tank/meta/?uid=${uid}`;
             // const response = await axios.get<{status: string, payload: any}>(apiUrl, {
             //     withCredentials: true,
             //     headers: {
@@ -58,7 +58,7 @@ export default class ViewsController {
             return res.render(HOME_FILE_NAME, {
                 parsedTkn,
                 title: 'Bubble Body',
-                info: {temperature: '25°', ph: '7.5'},
+                info: {img: '', temperature: '25°', ph: '7.5'},
                 css: HOME_FILE_NAME,
                 js: HOME_FILE_NAME,
                 baseUrl: this.BASE_URL,

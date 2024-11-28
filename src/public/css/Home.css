@@ -8,15 +8,18 @@
 }
 
 .aquarium:hover {
-    transform: scale(1.1); /* Scale up the box by 10% */
+    transform: scale(1.1);
+    /* Scale up the box by 10% */
 }
 
 .aquarium-image {
     width: 100%;
-    padding-top: 60%; /* Aspect ratio placeholder */
+    padding-top: 60%;
+    /* Aspect ratio placeholder */
     background-color: #ddd;
     border-radius: 15px;
-    background-image: url("../images/34c0d19c528865185b4839865651ae4b.gif"); /* Placeholder for aquarium image */
+    background-image: url("../images/34c0d19c528865185b4839865651ae4b.gif");
+    /* Placeholder for aquarium image */
     background-size: cover;
     background-position: center;
     box-shadow: #37474f 0px 0px 15px;
@@ -25,7 +28,8 @@
 }
 
 .aquarium-image:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.612); /* Bigger shadow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.612);
+    /* Bigger shadow */
 }
 
 .info-panel {
@@ -88,8 +92,35 @@
 .food-icon-img {
     width: 80px;
     height: 80px;
-    background-image: url('../images/csm-T514155-9651-8a12d2d705-62e298248d8a0_g.webp'); /* Placeholder for food icon */
-    background-size: contain;   
+    background-image: url('../images/csm-T514155-9651-8a12d2d705-62e298248d8a0_g.webp');
+    /* Placeholder for food icon */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.video-container {
+    width: 100%;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.video-container video {
+    width: 100%;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;        
+    border-radius: 4px;
+}
+
+.video-container video:hover {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    transform: scale(1.02)
 }
