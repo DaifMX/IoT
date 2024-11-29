@@ -29,12 +29,6 @@ export default class WtrTankModel extends Model<WtrTankEntry, WtrTankNewEntry> i
     })
     declare name: string;
 
-    @Column({
-        type: DataType.TIME,
-        allowNull: true,
-    })
-    declare food_schedule_time: string;
-
     @ForeignKey(() => UserModel)
     @Column({
         type: DataType.INTEGER,

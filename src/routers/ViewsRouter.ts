@@ -9,12 +9,8 @@ export default class ViewsRouter extends BaseRouter{
     // tiene que redireccionar a localhost:8080/login si el 
     // token del usuario es valido, esta expirado o ausente.
     init(){
-        this.get('/register', ['PUBLIC'], controller.register);
-
         this.get('/login', ['PUBLIC'], controller.login);
 
         this.get('/', ['_VIEW', 'AUTHORIZED'], controller.home);
-
-        this.get('/feeding', ['_VIEW', 'AUTHORIZED'], controller.feeding);
     };
 }

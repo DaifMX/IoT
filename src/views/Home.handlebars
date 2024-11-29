@@ -1,6 +1,8 @@
-
 <div class="video-container">
     <video id="video" autoplay disablePictureInPicture></video>
+</div>
+<div id="error-message" style="display:none;">
+    Hubo un error al cargar o reproducir el video. Por favor, intente más tarde.
 </div>
 <div class="info-panel">
     <div class="info-group">
@@ -15,11 +17,9 @@
             <div class="info-value">{{info.ph}}</div>
         </div>
     </div>
-    <a href="/feeding">
-        <div class="info-icon">
-            <div class="food-icon">
-                <div class="food-icon-img"></div>
-            </div>
+    <div id='dropFoodBtn' class="info-icon">
+        <div class="food-icon">
+            <div class="food-icon-img"></div>
         </div>
-    </a>
+    </div>
 </div>

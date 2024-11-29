@@ -1,6 +1,7 @@
 import { Model, Table, Column, DataType, BelongsTo, ForeignKey } from "sequelize-typescript";
 import WtrTankMetaEntry, { WtrTankMetaNewEntry } from "../interfaces/IWtrTankMeta";
 import WtrTankModel from "./WtrTankModel";
+import { NOW } from "sequelize";
 
 @Table({
     modelName: 'WtrTankMeta`Model',
@@ -19,28 +20,11 @@ export default class WtrTankMetaModel extends Model<WtrTankMetaEntry, WtrTankMet
     declare id: number;
     
     @Column({
-        type: DataType.INTEGER,
+        type: DataType.DATE,
         allowNull: false,
-        validate: {
-            isFloat: {msg: 'Temparatura ingresada de manera invalida. Intenta nuevamente.'}
-        }
+        defaultValue: NOW()
     })
-    declare temperature: number;
-    
-    @Column({
-        type: DataType.INTEGER,
-        allowNull: false,
-        validate: {
-            isFloat: {msg: 'PH ingresado de manera invalida. Intenta nuevamente'}
-        }
-    })
-    declare ph: number;
-
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    declare img_path: number;
+    declare food_time: Date;
 
     @ForeignKey(() => WtrTankModel)
     @Column({

@@ -1,12 +1,9 @@
-import WtrTankModel from "../models/WtrTankModel";
 
 export default interface WtrTankMetaEntry {
     id: number;
-    temperature: number;
-    ph: number;
+    food_time: Date;
     wtr_tank_id: number;
-    wtr_tank: WtrTankModel;
 }
 
-export type WtrTankMetaNewEntry = Omit<WtrTankMetaEntry, 'id'>;
+export type WtrTankMetaNewEntry = Omit<WtrTankMetaEntry, 'id' | 'food_time'>;
 export type WtrTankMetaUpdateEntry = Partial<WtrTankMetaNewEntry>;

@@ -11,4 +11,9 @@ export default class WtrTankService {
 
         return user;
     };
+
+    public create = async (data: any) => {
+        const user = await this.MODEL.create(data);
+        return user;
+    };
 }

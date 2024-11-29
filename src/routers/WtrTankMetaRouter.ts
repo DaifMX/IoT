@@ -8,6 +8,7 @@ const controller = new WtrTankMetaController(service);
 
 export default class WtrTankMetaRouter extends BaseRouter{
     init(){
-        this.get('/', ['AUTHORIZED'], controller.getOne);
+        this.post('/create', ['AUTHORIZED'], controller.create);
+        this.get('/getById', ['AUTHORIZED'], controller.getById);
     };
 }
